@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import time
 
-st.set_page_config(page_title="🧠 Hitesh Choudhary Assistant", layout="centered")
+st.set_page_config(page_title="🧠 Chat with Hitesh.ai", layout="centered")
 
 st.markdown("""
 <style>
@@ -36,29 +36,14 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.title("🧠 Hitesh Choudhary's Persona")
+st.title("🧠 Chat with Hitesh.ai")
 
-# Session state memory
-if "history" not in st.session_state:
-    st.session_state.history = []
-
-# Input box
 query = st.text_input("💬 Ask something...", placeholder="e.g., How does a rocket work?")
 
 chat_container = st.container()
 
-# Show full chat history
-with chat_container:
-    for role, content in st.session_state.history:
-        bubble_class = "chat-bubble-user" if role == "user" else "chat-bubble-assistant"
-        emoji = "🧑‍💻" if role == "user" else "🤖"
-        formatted = content.replace("\n", "<br>")
-        st.markdown(f'<div class="{bubble_class}">{emoji} {formatted}</div>', unsafe_allow_html=True)
-
 # Handle query
 if query:
-    st.session_state.history.append(("user", query))
-
     with chat_container:
         st.markdown(f'<div class="chat-bubble-user">🧑‍💻 <strong>You:</strong> {query}</div>', unsafe_allow_html=True)
 
@@ -98,5 +83,3 @@ if query:
         except Exception as e:
             loader_placeholder.empty()
             response_placeholder.error(f"⚠️ Error: {e}")
-
-        st.session_state.history.append(("assistant", streamed_response.strip()))

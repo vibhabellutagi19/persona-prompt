@@ -1,4 +1,4 @@
-## Chai of thought's prompting - Hitesh Choudary Persona
+## Chain of thought with Persona prompting
 
 ## Prerequisites
 1. Python 3.12.6 or higher
