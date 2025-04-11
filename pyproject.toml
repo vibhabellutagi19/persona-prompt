@@ -1,0 +1,13 @@
+[project]
+name = "persona-prompt"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12.6"
+dependencies = [
+    "fastapi>=0.115.12",
+    "load-dotenv>=0.1.0",
+    "openai>=1.72.0",
+    "requests>=2.32.3",
+    "streamlit>=1.44.1",
+]
